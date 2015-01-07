@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+
+	"name": "Time Well Spent",
+	"version": "1.0",
+	"description": "Chrome extension for tracking time spent browsing.",
+
+	"browser_action": {
+		"default_icon": "icon1.png",
+		"default_popup": "clock.html"
+	}
+}
