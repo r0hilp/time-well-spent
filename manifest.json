@@ -6,11 +6,17 @@
 	"description": "Chrome extension for tracking time spent browsing.",
 
 	"permissions": [
-	  "tabs"
+	  "tabs",
+	  "storage"
 	], 
 
 	"browser_action": {
 		"default_icon": "icon1.png",
 		"default_popup": "popup.html"
+	},
+
+	"background": {
+		"scripts": ["background.js"]
 	}
+
 }
