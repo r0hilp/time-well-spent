@@ -18,7 +18,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
     	//data = data + parseInt(minutes)*60;
     	//data = data + parseInt(seconds);
     	var new_data;
-    	if(typeof data[domain] !== undefined)
+    	if(data.hasOwnProperty(domain))
     	{
     		new_data = data[domain] + parseInt(minutes)*60 + parseInt(seconds);
     	}
@@ -56,8 +56,6 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, TAB) {
-	if(changeInfo.status === "loaded")
-	{
     chrome.storage.local.get(domain, function(data)
 	{
     	if(chrome.runtime.lastError)
@@ -70,7 +68,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, TAB) {
     	//data = data + parseInt(minutes)*60;
     	//data = data + parseInt(seconds);
     	var new_data;
-    	if(typeof data[domain] !== undefined)
+    	if(data.hasOwnProperty(domain))
     	{
     		new_data = data[domain] + parseInt(minutes)*60 + parseInt(seconds);
     	}
@@ -103,5 +101,4 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, TAB) {
 			};
     	});
 	});
-	}
 });
