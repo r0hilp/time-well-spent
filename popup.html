@@ -1,20 +1,36 @@
 <!doctype html>
 <html>
-	<head>
-		<title> How do you spend your time? </title>
+  <head>
+    <title>How do you spend your time?</title>
+    <style>
+      body {
+        min-width: 357px;
+        overflow-x: hidden;
+      }
 
-		<style>
-			body {
-			min-width: 300px;
-			min-height: 300px;
-			}
-		</style>
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }
+    </style>
 
-		<!script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><!/script>
-		<script src="popup.js"></script>
-	</head>
-
-	<body>
-	Hi there!
-	</body>
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+    <script src="popup.js"></script>
+    <script src="jquery-1.11.2.min.js"></script>
+  </head>
+  <body>
+  <div>You are currently on: </div>
+  <div id = "current-url"></div>
+  </body>
 </html>
+
+
+
