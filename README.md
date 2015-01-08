@@ -7,6 +7,6 @@ An experiment in creating Chrome extensions.
 
 ## TODO
 
-Fix getting local storage data by key issue.
-CSS and design for the popup.
-Code cleanup (commenting, removing/refining unnecessary code)
+- Fix getting local storage data by key issue.
+- CSS and design for the popup.
+- Code cleanup (commenting, removing/refining unnecessary code)
