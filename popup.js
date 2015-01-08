@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	});*/
 	chrome.storage.local.get(null, function(all) {
-	    $("#current-url").html(all);
+		$("#current-url").html(JSON.stringify(all, undefined, 2));
 	});
 
 });
