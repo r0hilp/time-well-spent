@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+	/*
 	var loaded = new Date();
 	console.log(loaded.toLocaleTimeString());
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
@@ -18,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
     		seconds = ('0' + (seconds%60).toString()).slice(-2);
     		$("#current-url").html(domain + " " + minutes + ":" + seconds);
 		};
+	});*/
+	chrome.storage.local.get(null, function(all) {
+	    $("#current-url").html(all);
 	});
 
 });
