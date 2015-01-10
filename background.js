@@ -4,6 +4,16 @@ var myVar = setInterval(function(){}, 1000);
 var url = "";
 var domain = "";
 
+chrome.windows.onFocusChanged.addListener(function(windowId){
+		console.log("Focused to " + windowId);
+		if(windowId == chrome.windows.WINDOW_ID_NONE)
+		{
+			clearInterval(myVar);
+		}
+		return;
+	}
+); 
+
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     chrome.tabs.get(activeInfo.tabId, function(tab) {
     chrome.storage.local.get(domain, function(data)
