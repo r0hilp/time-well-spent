@@ -3,6 +3,7 @@ var seconds = 0;
 var activationTimer;
 var windowChangeTimer;
 var updateTimer;
+var timer;
 var url = "";
 var domain = "";
 var timers = [];
@@ -42,7 +43,9 @@ function runUpdate(tab)
 				return;
 			});
 		};
-    	var timer = setInterval(1, function(){updateTime()}, 1000);
+		clearInterval(timer);
+    	timer = setInterval(function(){updateTime()}, 1000);
+    	console.log("Set interval to " + timer);
 	});
 };
 
@@ -50,12 +53,12 @@ chrome.windows.onFocusChanged.addListener(function(windowId){
 		console.log("Focused to " + windowId);
 		if(windowId == chrome.windows.WINDOW_ID_NONE)
 		{
-			clearTimers();
+			// clearTimers();
 			return;
 		}
 		else
 		{
-			clearTimers();
+			// clearTimers();
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
 				tab = tabs[0];
 				if(tab.status != "complete")
@@ -73,7 +76,7 @@ chrome.windows.onFocusChanged.addListener(function(windowId){
 
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
-	clearTimers();
+	// clearTimers();
     chrome.tabs.get(activeInfo.tabId, function(tab) {
     	if(tab.status != "complete")
 		{
@@ -84,7 +87,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	clearTimers();
+	// clearTimers();
     if(tab.status != "complete")
     {
     	return;
